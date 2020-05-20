@@ -1,5 +1,5 @@
 module.exports = {
-  PORT: 5001,
+  PORT: 5556,
   MONGODB: {
     uri: "mongodb://localhost:27017/events",
     options: {
