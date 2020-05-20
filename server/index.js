@@ -18,10 +18,10 @@ require("./routes")(app);
 /*****STATIC FILES*******/
 
 const path = require("path");
-app.use(express.static("client/build"));
+app.use(express.static("../client/build"));
 //serve routes
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve("client", "build", "index.html"));
+  res.sendFile(path.resolve("../client", "build", "index.html"));
 });
 
 /*****STATIC FILES*******/
