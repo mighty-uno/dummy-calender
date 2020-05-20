@@ -7,12 +7,14 @@ const ReSchedule = (props) => {
   } = props;
   return (
     <div>
-      <div className="text-4xl">{bookedTo}</div>
+      <div className="text-4xl capitalize">{bookedTo}</div>
       <div className="text-base capitalize">{`${day}, ${date} ${time}`}</div>
 
       <div className="grid grid-cols-2 w-full space-x-4 my-4">
-        <Button color="yellow">Re-Schedule</Button>
-        <Button onClick={onClose} color="red">
+        <Button icon="schedule" color="yellow">
+          Re-Schedule
+        </Button>
+        <Button icon="cancel" onClick={onClose} color="red">
           Cancel
         </Button>
       </div>

@@ -15,6 +15,7 @@ const Schedule = (props) => {
       ></input>
       <div className="grid grid-cols-2 w-full space-x-4">
         <Button
+          icon="schedule"
           onClick={() => {
             setEvent(name, value);
           }}

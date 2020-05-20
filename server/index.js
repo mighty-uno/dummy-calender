@@ -16,14 +16,14 @@ app.use(express.json());
 require("./routes")(app);
 
 /*****STATIC FILES*******/
-if (process.env.NODE_ENV === "production") {
-  const path = require("path");
-  app.use(express.static(path.join(__dirname, "client/build")));
-  //serve routes
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
+
+const path = require("path");
+app.use(express.static("client/build"));
+//serve routes
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
+
 /*****STATIC FILES*******/
 
 app.listen(PORT, function () {

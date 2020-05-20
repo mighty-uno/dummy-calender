@@ -9,6 +9,9 @@ import {
 import { connect } from "react-redux";
 import { addEvent, getEvents } from "../../actions";
 
+import { DndProvider } from "react-dnd";
+import HTML5Backend from "react-dnd-html5-backend";
+
 const days = [
   {
     day: "Sunday",
@@ -184,25 +187,26 @@ const Home = (props) => {
               <DayCard key={i} value={r} />
             ))}
           </div>
-
-          <div className="calenderEvent flex items-center grid grid-cols-8 gap-4">
-            {times.map((time, i) => (
-              <>
-                <div className="font-semibold flex items-center flex-row justify-end text-right h-32 ">
-                  {time.time}
-                </div>
-                {days.map((day, i) => (
-                  <EventCard
-                    onEventSelect={(v) => {
-                      selectEvent(v);
-                    }}
-                    key={i}
-                    value={findEvent(day, time)}
-                  />
-                ))}
-              </>
-            ))}
-          </div>
+          <DndProvider backend={HTML5Backend}>
+            <div className="calenderEvent flex items-center grid grid-cols-8 gap-4">
+              {times.map((time, i) => (
+                <>
+                  <div className="font-semibold flex items-center flex-row justify-end text-right h-32 ">
+                    {time.time}
+                  </div>
+                  {days.map((day, i) => (
+                    <EventCard
+                      onEventSelect={(v) => {
+                        selectEvent(v);
+                      }}
+                      key={i}
+                      value={findEvent(day, time)}
+                    />
+                  ))}
+                </>
+              ))}
+            </div>
+          </DndProvider>
         </div>
       </div>
     </div>
