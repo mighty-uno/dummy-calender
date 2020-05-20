@@ -133,7 +133,7 @@ const Home = (props) => {
       : {
           ...day,
           ...time,
-          booking:
+          isBooking:
             day.isBooking == "blocked" || time.isBooking == "blocked"
               ? "blocked"
               : "open",
