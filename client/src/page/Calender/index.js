@@ -178,7 +178,7 @@ const Home = (props) => {
 
       <div className="w-full">
         <div className="w-full py-2 px-16">
-          <div className="header w-full h-16 flex items-center grid grid-cols-8 gap-4 text-center">
+          <div className="header w-full h-16 h-24 mb-4 flex items-center grid grid-cols-8 gap-4 text-center">
             <div></div>
             {days.map((r, i) => (
               <DayCard key={i} value={r} />
@@ -188,7 +188,9 @@ const Home = (props) => {
           <div className="calenderEvent flex items-center grid grid-cols-8 gap-4">
             {times.map((time, i) => (
               <>
-                <div className="text-right h-32">{time.time}</div>
+                <div className="font-semibold flex items-center flex-row justify-end text-right h-32 ">
+                  {time.time}
+                </div>
                 {days.map((day, i) => (
                   <EventCard
                     onEventSelect={(v) => {
